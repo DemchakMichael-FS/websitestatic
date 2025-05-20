@@ -63,14 +63,14 @@ export default function NuvanaCaseStudy() {
           <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg my-8 text-center">
             <h3 className="text-xl font-bold mb-2">Visit the Live Website</h3>
             <p className="mb-4">See the Nuvana website in action:</p>
-            <a
+            <Link
               href="https://www.nuvanaweb.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
             >
               www.nuvanaweb.com
-            </a>
+            </Link>
           </div>
 
           {/* Key Features */}
@@ -138,7 +138,7 @@ export default function NuvanaCaseStudy() {
           {/* Conclusion */}
           <h2>Conclusion</h2>
           <p>
-            Overall, Nuvana is not just a website — it's a strategic tool to generate leads, promote my services,
+            Overall, Nuvana is not just a website — it&apos;s a strategic tool to generate leads, promote my services,
             and position myself as a trusted web developer specializing in custom, high-impact websites that drive
             business growth through effective online presence.
           </p>
@@ -153,8 +153,8 @@ export default function NuvanaCaseStudy() {
           <div className="bg-blue-50 dark:bg-blue-900 p-6 rounded-lg my-8">
             <h3 className="text-xl font-bold mb-2">Interested in a Similar Website?</h3>
             <p className="mb-4">
-              If you're looking for a custom website that drives business growth and showcases your services effectively,
-              visit <a href="https://www.nuvanaweb.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Nuvana</a> to
+              If you&apos;re looking for a custom website that drives business growth and showcases your services effectively,
+              visit <Link href="https://www.nuvanaweb.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Nuvana</Link> to
               learn more about my web design services.
             </p>
           </div>

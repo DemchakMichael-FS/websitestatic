@@ -48,7 +48,7 @@ export default function ReactAPIBestPractices() {
           <p>
             Modern React applications often rely heavily on external APIs to fetch and manage data.
             However, without proper implementation, API calls can lead to performance issues,
-            difficult-to-maintain code, and poor user experience. In this article, we'll explore
+            difficult-to-maintain code, and poor user experience. In this article, we&apos;ll explore
             best practices for integrating APIs within your React applications.
           </p>
 
