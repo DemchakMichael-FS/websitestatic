@@ -72,7 +72,7 @@ export default function ReactAPIBestPractices() {
           </p>
 
           <p>
-            For example, I typically create an "api" folder with files like "userService.js" and "productService.js"
+            For example, I typically create an &quot;api&quot; folder with files like &quot;userService.js&quot; and &quot;productService.js&quot;
             that export functions for different API operations. This makes it much easier to update endpoints or
             authentication logic in one place rather than hunting through dozens of components.
           </p>
@@ -85,19 +85,19 @@ export default function ReactAPIBestPractices() {
           </p>
 
           <p>
-            I've found that creating custom hooks for data fetching dramatically simplifies my components.
+            I&apos;ve found that creating custom hooks for data fetching dramatically simplifies my components.
             Instead of repeating the same fetch-loading-error pattern in every component, I can abstract that
             logic into a hook and just use the returned data and status values.
           </p>
 
           <p>
-            My typical pattern is to create hooks like "useUsers" or "useProducts" that handle the entire
+            My typical pattern is to create hooks like &quot;useUsers&quot; or &quot;useProducts&quot; that handle the entire
             data fetching lifecycle. The component simply calls the hook and receives the data, loading state,
             and any errors. This keeps the components focused on rendering UI rather than managing API logic.
           </p>
 
           <p>
-            The separation also makes testing much easier since I can mock the hook's return values rather
+            The separation also makes testing much easier since I can mock the hook&apos;s return values rather
             than having to mock API calls directly in component tests.
           </p>
 
@@ -126,7 +126,7 @@ export default function ReactAPIBestPractices() {
           </p>
 
           <p>
-            For API-specific errors, I've found it helpful to categorize them by type (network, server,
+            For API-specific errors, I&apos;ve found it helpful to categorize them by type (network, server,
             authentication, etc.) and display appropriate messages to users. For example, a 401 error might
             prompt the user to log in again, while a network error might suggest checking their connection.
           </p>
@@ -157,7 +157,7 @@ export default function ReactAPIBestPractices() {
           </p>
 
           <p>
-            While there's a learning curve to these libraries, the investment pays off quickly in terms of
+            While there&apos;s a learning curve to these libraries, the investment pays off quickly in terms of
             application reliability and development speed. I particularly appreciate how they reduce boilerplate
             code and let me focus on the unique aspects of my application.
           </p>
@@ -171,7 +171,7 @@ export default function ReactAPIBestPractices() {
             data fetching strategy that scales with your application.
           </p>
           <p>
-            Remember that the specific approach you choose should align with your project's needs
+            Remember that the specific approach you choose should align with your project&apos;s needs
             and complexity. For smaller applications, simpler solutions might be sufficient, while
             larger applications may benefit from more sophisticated data management strategies.
           </p>

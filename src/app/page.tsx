@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import Image from 'next/image';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
@@ -8,8 +11,8 @@ export default function Home() {
             <h1 className="text-2xl font-bold">My Tech Blog</h1>
             <nav>
               <ul className="flex space-x-6">
-                <li><a href="/" className="hover:text-blue-200 transition-colors">Home</a></li>
-                <li><a href="#about" className="hover:text-blue-200 transition-colors">About</a></li>
+                <li><Link href="/" className="hover:text-blue-200 transition-colors">Home</Link></li>
+                <li><Link href="#about" className="hover:text-blue-200 transition-colors">About</Link></li>
               </ul>
             </nav>
           </div>
@@ -36,26 +39,28 @@ export default function Home() {
             {/* Article 1 */}
             <article className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="h-48 bg-gray-200 dark:bg-gray-700 relative">
-                <img
+                <Image
                   src="/images/react-api-header.svg"
                   alt="React API Best Practices"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  unoptimized
                 />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">
-                  <a href="/articles/react-api-best-practices" className="text-blue-600 dark:text-blue-400 hover:underline">
+                  <Link href="/articles/react-api-best-practices" className="text-blue-600 dark:text-blue-400 hover:underline">
                     Best Practices for Using APIs within React
-                  </a>
+                  </Link>
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
                   Learn how to effectively integrate and manage API calls in your React applications with these proven best practices.
                 </p>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-500 dark:text-gray-400">May 11, 2025</span>
-                  <a href="/articles/react-api-best-practices" className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+                  <Link href="/articles/react-api-best-practices" className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
                     Read More →
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>
@@ -63,26 +68,28 @@ export default function Home() {
             {/* Article 2 */}
             <article className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="h-48 bg-gray-200 dark:bg-gray-700 relative">
-                <img
+                <Image
                   src="/images/Nuvana Logo.jpg"
                   alt="Nuvana Website Case Study"
-                  className="w-full h-full object-contain"
+                  fill
+                  className="object-contain"
+                  unoptimized
                 />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">
-                  <a href="/articles/nuvana-case-study" className="text-blue-600 dark:text-blue-400 hover:underline">
+                  <Link href="/articles/nuvana-case-study" className="text-blue-600 dark:text-blue-400 hover:underline">
                     Nuvana: A Bilingual Website for Web Design Services
-                  </a>
+                  </Link>
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
                   A case study of Nuvana, a professional website I built to showcase web design and SEO services for clients in Puerto Rico.
                 </p>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-500 dark:text-gray-400">May 12, 2025</span>
-                  <a href="/articles/nuvana-case-study" className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+                  <Link href="/articles/nuvana-case-study" className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
                     Read More →
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>
