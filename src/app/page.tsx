@@ -64,9 +64,9 @@ export default function Home() {
             <article className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="h-48 bg-gray-200 dark:bg-gray-700 relative">
                 <img
-                  src="/images/nuvana-header.svg"
+                  src="/images/Nuvana Logo.jpg"
                   alt="Nuvana Website Case Study"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div className="p-6">

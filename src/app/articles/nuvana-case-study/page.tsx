@@ -35,7 +35,7 @@ export default function NuvanaCaseStudy() {
           {/* Featured Image */}
           <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
             <Image
-              src="/images/nuvana-header.svg"
+              src="/images/Nuvana Logo.jpg"
               alt="Nuvana Website"
               fill
               style={{ objectFit: 'contain' }}
