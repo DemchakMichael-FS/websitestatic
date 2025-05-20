@@ -65,34 +65,17 @@ export default function ReactAPIBestPractices() {
             <li>Better code organization</li>
           </ul>
 
-          <p>Here's an example of a centralized API service:</p>
+          <p>
+            When I first started working with React, I made the mistake of placing API calls directly in my
+            component files. This quickly became unmanageable as the application grew. I learned that creating
+            a dedicated API service folder with separate files for different resources works much better.
+          </p>
 
-          <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto">
-            <code>{`// api/index.js
-const API_BASE_URL = 'https://api.example.com';
-
-export const fetchUsers = async () => {
-  try {
-    const response = await fetch(\`\${API_BASE_URL}/users\`);
-    if (!response.ok) throw new Error('Network response was not ok');
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching users:', error);
-    throw error;
-  }
-};
-
-export const fetchUserById = async (id) => {
-  try {
-    const response = await fetch(\`\${API_BASE_URL}/users/\${id}\`);
-    if (!response.ok) throw new Error('Network response was not ok');
-    return await response.json();
-  } catch (error) {
-    console.error(\`Error fetching user \${id}:\`, error);
-    throw error;
-  }
-};`}</code>
-          </pre>
+          <p>
+            For example, I typically create an "api" folder with files like "userService.js" and "productService.js"
+            that export functions for different API operations. This makes it much easier to update endpoints or
+            authentication logic in one place rather than hunting through dozens of components.
+          </p>
 
           {/* Section 2 */}
           <h2>2. Use Custom Hooks for Data Fetching</h2>
@@ -101,60 +84,22 @@ export const fetchUserById = async (id) => {
             For API calls, custom hooks can manage loading states, error handling, and data caching.
           </p>
 
-          <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto">
-            <code>{`// hooks/useUsers.js
-import { useState, useEffect } from 'react';
-import { fetchUsers } from '../api';
-
-export const useUsers = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const getUsers = async () => {
-      try {
-        setLoading(true);
-        const data = await fetchUsers();
-        setUsers(data);
-        setError(null);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    getUsers();
-  }, []);
-
-  return { users, loading, error };
-};`}</code>
-          </pre>
-
           <p>
-            Using this hook in a component becomes straightforward:
+            I've found that creating custom hooks for data fetching dramatically simplifies my components.
+            Instead of repeating the same fetch-loading-error pattern in every component, I can abstract that
+            logic into a hook and just use the returned data and status values.
           </p>
 
-          <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto">
-            <code>{`// components/UserList.js
-import { useUsers } from '../hooks/useUsers';
+          <p>
+            My typical pattern is to create hooks like "useUsers" or "useProducts" that handle the entire
+            data fetching lifecycle. The component simply calls the hook and receives the data, loading state,
+            and any errors. This keeps the components focused on rendering UI rather than managing API logic.
+          </p>
 
-const UserList = () => {
-  const { users, loading, error } = useUsers();
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-
-  return (
-    <ul>
-      {users.map(user => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-    </ul>
-  );
-};`}</code>
-          </pre>
+          <p>
+            The separation also makes testing much easier since I can mock the hook's return values rather
+            than having to mock API calls directly in component tests.
+          </p>
 
           {/* Section 3 */}
           <h2>3. Implement Proper Error Handling</h2>
@@ -169,34 +114,22 @@ const UserList = () => {
           </ul>
 
           <p>
-            Consider creating reusable error boundaries to catch and display errors gracefully:
+            Error handling was something I initially overlooked, but I quickly learned its importance after
+            deploying to production. Users will encounter network issues, servers will occasionally fail,
+            and APIs will sometimes return unexpected data formats.
           </p>
 
-          <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto">
-            <code>{`// components/ErrorBoundary.js
-import React from 'react';
+          <p>
+            I now implement error boundaries at strategic points in my application to catch and display errors
+            gracefully. This prevents the entire application from crashing when a single component encounters
+            an error.
+          </p>
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false, error: null };
-  }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true, error };
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return this.props.fallback || <div>Something went wrong. Please try again later.</div>;
-    }
-
-    return this.props.children;
-  }
-}
-
-export default ErrorBoundary;`}</code>
-          </pre>
+          <p>
+            For API-specific errors, I've found it helpful to categorize them by type (network, server,
+            authentication, etc.) and display appropriate messages to users. For example, a 401 error might
+            prompt the user to log in again, while a network error might suggest checking their connection.
+          </p>
 
           {/* Section 4 */}
           <h2>4. Use a Data Fetching Library</h2>
@@ -210,28 +143,24 @@ export default ErrorBoundary;`}</code>
             <li><strong>Apollo Client</strong>: Excellent for GraphQL APIs</li>
           </ul>
 
-          <p>Here's an example using React Query:</p>
+          <p>
+            After struggling with managing complex data fetching scenarios manually, I started using React Query
+            on a project last year. The difference was night and day. Features that would have taken days to
+            implement correctly (like background refetching, cache invalidation, and pagination) were suddenly
+            available out of the box.
+          </p>
 
-          <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto">
-            <code>{`// Using React Query
-import { useQuery } from 'react-query';
-import { fetchUsers } from '../api';
+          <p>
+            These libraries handle many edge cases that are easy to miss when implementing data fetching yourself.
+            For instance, React Query automatically handles request deduplication, so if multiple components request
+            the same data simultaneously, only one network request is made.
+          </p>
 
-const UserList = () => {
-  const { data: users, isLoading, error } = useQuery('users', fetchUsers);
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-
-  return (
-    <ul>
-      {users.map(user => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-    </ul>
-  );
-};`}</code>
-          </pre>
+          <p>
+            While there's a learning curve to these libraries, the investment pays off quickly in terms of
+            application reliability and development speed. I particularly appreciate how they reduce boilerplate
+            code and let me focus on the unique aspects of my application.
+          </p>
 
           {/* Conclusion */}
           <h2>Conclusion</h2>
