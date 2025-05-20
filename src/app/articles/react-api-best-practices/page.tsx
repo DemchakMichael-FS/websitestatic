@@ -9,11 +9,14 @@ export default function ReactAPIBestPractices() {
         <div className="container mx-auto px-4">
           <nav className="flex justify-between items-center">
             <Link href="/" className="text-xl font-bold hover:text-blue-200 transition-colors">
-              My Static Website
+              My Tech Blog
             </Link>
-            <div>
+            <div className="space-x-6">
               <Link href="/" className="hover:text-blue-200 transition-colors">
                 Home
+              </Link>
+              <Link href="/#about" className="hover:text-blue-200 transition-colors">
+                About
               </Link>
             </div>
           </nav>
@@ -246,10 +249,30 @@ const UserList = () => {
         </article>
       </main>
 
+      {/* Related Articles */}
+      <section className="bg-gray-100 dark:bg-gray-800 py-12">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="text-2xl font-bold mb-6 text-center">Related Articles</h2>
+          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+            <h3 className="text-xl font-bold mb-2">
+              <Link href="/articles/nuvana-case-study" className="text-blue-600 dark:text-blue-400 hover:underline">
+                Nuvana: A Bilingual Website for Web Design Services
+              </Link>
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 mb-4">
+              A case study of Nuvana, a professional website I built to showcase web design and SEO services for clients in Puerto Rico.
+            </p>
+            <div className="text-sm text-gray-500 dark:text-gray-400">
+              Published: May 12, 2024
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer className="bg-gray-100 dark:bg-gray-800 py-6">
-        <div className="container mx-auto px-4 text-center text-gray-600 dark:text-gray-400">
-          <p>© 2024 My Static Website. All rights reserved.</p>
+      <footer className="bg-gray-900 text-white py-8">
+        <div className="container mx-auto px-4 text-center">
+          <p>© 2024 My Tech Blog. All rights reserved.</p>
         </div>
       </footer>
     </div>
