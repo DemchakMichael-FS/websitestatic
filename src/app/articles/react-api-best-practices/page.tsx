@@ -29,7 +29,7 @@ export default function ReactAPIBestPractices() {
           {/* Article Header */}
           <div className="mb-8">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">Best Practices for Using APIs within React</h1>
-            <div className="text-gray-600 dark:text-gray-400 mb-4">Published: May 11, 2024</div>
+            <div className="text-gray-600 dark:text-gray-400 mb-4">Published: May 11, 2025</div>
           </div>
 
           {/* Featured Image */}
@@ -263,7 +263,7 @@ const UserList = () => {
               A case study of Nuvana, a professional website I built to showcase web design and SEO services for clients in Puerto Rico.
             </p>
             <div className="text-sm text-gray-500 dark:text-gray-400">
-              Published: May 12, 2024
+              Published: May 12, 2025
             </div>
           </div>
         </div>
@@ -272,7 +272,7 @@ const UserList = () => {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4 text-center">
-          <p>© 2024 My Tech Blog. All rights reserved.</p>
+          <p>© 2025 My Tech Blog. All rights reserved.</p>
         </div>
       </footer>
     </div>

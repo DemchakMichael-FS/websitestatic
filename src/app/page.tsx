@@ -52,7 +52,7 @@ export default function Home() {
                   Learn how to effectively integrate and manage API calls in your React applications with these proven best practices.
                 </p>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">May 11, 2024</span>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">May 11, 2025</span>
                   <a href="/articles/react-api-best-practices" className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
                     Read More →
                   </a>
@@ -79,7 +79,7 @@ export default function Home() {
                   A case study of Nuvana, a professional website I built to showcase web design and SEO services for clients in Puerto Rico.
                 </p>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">May 12, 2024</span>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">May 12, 2025</span>
                   <a href="/articles/nuvana-case-study" className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
                     Read More →
                   </a>
@@ -108,7 +108,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4 text-center">
-          <p>© 2024 My Tech Blog. All rights reserved.</p>
+          <p>© 2025 My Tech Blog. All rights reserved.</p>
         </div>
       </footer>
     </div>
