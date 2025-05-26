@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { getAllPosts } from '@/lib/posts'
 
 export default function BlogPage() {
@@ -19,9 +20,11 @@ export default function BlogPage() {
             <div className="md:flex">
               {post.image && (
                 <div className="md:w-1/3">
-                  <img 
-                    src={post.image} 
+                  <Image
+                    src={post.image}
                     alt={post.title}
+                    width={400}
+                    height={200}
                     className="w-full h-48 md:h-full object-cover"
                   />
                 </div>
@@ -29,7 +32,7 @@ export default function BlogPage() {
               <div className={`p-6 ${post.image ? 'md:w-2/3' : 'w-full'}`}>
                 <div className="flex flex-wrap gap-2 mb-3">
                   {post.tags.map((tag) => (
-                    <span 
+                    <span
                       key={tag}
                       className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
                     >
@@ -44,7 +47,7 @@ export default function BlogPage() {
                 </h2>
                 <p className="text-gray-600 text-sm mb-3">{post.date}</p>
                 <p className="text-gray-700 mb-4">{post.excerpt}</p>
-                <Link 
+                <Link
                   href={`/blog/${post.slug}`}
                   className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
                 >

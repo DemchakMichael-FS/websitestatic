@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 
 interface MarkdownRendererProps {
   content: string
@@ -17,7 +18,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
     let currentParagraph: string[] = []
     let inCodeBlock = false
     let codeBlockContent: string[] = []
-    let codeBlockLanguage = ''
+
 
     const flushParagraph = () => {
       if (currentParagraph.length > 0) {
@@ -41,7 +42,6 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
           </pre>
         )
         codeBlockContent = []
-        codeBlockLanguage = ''
       }
     }
 
@@ -54,7 +54,6 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
         } else {
           flushParagraph()
           inCodeBlock = true
-          codeBlockLanguage = line.slice(3).trim()
         }
         return
       }
@@ -94,10 +93,12 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
         if (match) {
           const [, alt, src] = match
           elements.push(
-            <img
+            <Image
               key={elements.length}
               src={src}
               alt={alt}
+              width={800}
+              height={400}
               className="w-full rounded-lg shadow-md mb-6"
             />
           )
