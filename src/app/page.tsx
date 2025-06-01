@@ -35,8 +35,37 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Latest Articles</h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Article 1 - API Security */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {/* Article 1 - JWT Guide */}
+            <article className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="h-48 bg-gray-200 dark:bg-gray-700 relative">
+                <Image
+                  src="/images/json.png"
+                  alt="JSON Web Tokens Guide"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">
+                  <Link href="/articles/json-web-tokens-guide" className="text-blue-600 dark:text-blue-400 hover:underline">
+                    JSON Web Tokens: A Complete Guide to Modern Authentication
+                  </Link>
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  Learn everything you need to know about JSON Web Tokens - how they work, their structure, benefits, and best practices for secure implementation.
+                </p>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-500 dark:text-gray-400">May 20, 2025</span>
+                  <Link href="/articles/json-web-tokens-guide" className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+                    Read More →
+                  </Link>
+                </div>
+              </div>
+            </article>
+
+            {/* Article 2 - API Security */}
             <article className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="h-48 bg-gray-200 dark:bg-gray-700 relative">
                 <Image
@@ -65,7 +94,7 @@ export default function Home() {
               </div>
             </article>
 
-            {/* Article 2 - React API */}
+            {/* Article 3 - React API */}
             <article className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="h-48 bg-gray-200 dark:bg-gray-700 relative">
                 <Image
@@ -94,7 +123,7 @@ export default function Home() {
               </div>
             </article>
 
-            {/* Article 3 - Nuvana Case Study */}
+            {/* Article 4 - Nuvana Case Study */}
             <article className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="h-48 bg-gray-200 dark:bg-gray-700 relative">
                 <Image
